@@ -1,0 +1,36 @@
+spring:
+      datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+        username: root
+        password: root
+      jpa:
+              hibernate:
+                ddl-auto: create
+                show-sql: true
+      redis:
+        host: 127.0.0.1
+        port: 6379
+        password:
+        jedis:
+          pool:
+            max-active: 8
+            max-wait: -1
+            max-idle: 500
+      thymeleaf:
+        prefix: classpath:/templates/
+        suffix: .html
+        mode: HTML5
+        encoding: UTF-8
+        cache: false
+      resources:
+        chain:
+          strategy:
+            content:
+              enabled: true
+              paths: /**
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  type-aliases-package: com.book.entity
+server:
+  port: 8082
